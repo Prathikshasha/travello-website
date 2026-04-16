@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travello - Contact | Trendy</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Full-screen background – use your own stunning image */
+        body {
+            background: url('images/cover3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            position: relative;
+        }
+
+        /* Dark gradient overlay for cinematic feel */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: -1;
+        }
+
+        /* Navigation – same as other pages */
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            color: #FFD966;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #FFD966;
+        }
+
+        /* Main container – glassmorphism */
+        .contact-container {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(20, 20, 30, 0.55);
+            backdrop-filter: blur(16px);
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .contact-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .contact-header p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Two column layout */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+        }
+        .contact-form {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Info cards – modern glass */
+        .info-card {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            background: rgba(0, 0, 0, 0.7);
+            border-color: #FFD966;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .info-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        .info-card h3 {
+            color: #FFD966;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        .info-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.4;
+        }
+
+        /* Form styling – neon focus */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #FFD966;
+            letter-spacing: 0.5px;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 28px;
+            font-family: inherit;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD966;
+            box-shadow: 0 0 12px rgba(255, 217, 102, 0.4);
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            color: #1a1a2e;
+            border: none;
+            padding: 1rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(255, 217, 102, 0.4);
+        }
+
+        /* Map + towns section – with real Google Map */
+        .trendy-map-section {
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .map-card {
+            flex: 2;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 32px;
+            padding: 1rem;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .map-card iframe {
+            border-radius: 24px;
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        .town-list-trendy {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .town-list-trendy h4 {
+            color: #FFD966;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .town-list-trendy ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 1rem;
+        }
+        .town-list-trendy li {
+            color: white;
+            margin: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .town-list-trendy li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            color: #FFD966;
+        }
+
+        footer {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            padding: 1.5rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .contact-header h1 { font-size: 2.5rem; }
+            .town-list-trendy ul { columns: 1; }
+            .contact-container { margin: 1rem; padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">TRAVELLO</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="places.html">Places</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="contact-container">
+    <div class="contact-header">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you – plan your trip to Nuwara Eliya with us!</p>
+    </div>
+
+    <div class="contact-grid">
+        <!-- Left: Contact info cards -->
+        <div class="contact-info">
+            <div class="info-card">
+                <div class="icon">📍</div>
+                <h3>Visit Us</h3>
+                <p>Travello Tourism Office<br>Nuwara Eliya, Sri Lanka</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">📞</div>
+                <h3>Call Us</h3>
+                <p>+94 123 456 789<br>+94 987 654 321</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">✉️</div>
+                <h3>Email Us</h3>
+                <p>hello@travello.com<br>support@travello.com</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">⏰</div>
+                <h3>Working Hours</h3>
+                <p>Monday - Saturday: 9AM - 6PM<br>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <!-- Right: Contact form -->
+        <div class="contact-form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Trip planning / Question">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your travel plans..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Map & Nearby Towns Section with REAL Google Map -->
+    <div class="trendy-map-section">
+        <div class="map-card">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.694848775905!2d80.7819215754009!3d6.970842993027563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae380434e1554c7%3A0x2916080f5c54a4bd!2sNuwara%20Eliya%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1744638644424!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="town-list-trendy">
+            <h4>Nearby Towns</h4>
+            <ul>
+                <li>Nuwara Eliya</li><li>Pundulukoya</li>
+                <li>Talawakelle</li><li>Rupahala</li>
+                <li>Lindula</li><li>Kandapola</li>
+                <li>Nanu Oya</li><li>Narangala</li>
+                <li>Palawattha</li><li>Redeepana</li>
+                <li>Hawa Eliya</li><li>Kendegolla</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Travello | Explore Nuwara Eliya responsibly</p>
+</footer>
+
+</body>
+</html>
